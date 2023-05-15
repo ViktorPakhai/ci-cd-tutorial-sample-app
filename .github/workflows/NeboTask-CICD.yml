@@ -20,7 +20,6 @@ on:
     # test everything coming from the outside world, for good measure.
     # The `branches` tag could also be omitted, yielding the same effect here.
     branches:
-      - 'stage'
       - 'master'
 
 
@@ -171,6 +170,7 @@ jobs:
     needs: building_step
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     steps:
+    - uses: actions/checkout@v3
     - name: Configure AWS connections
       uses: aws-actions/configure-aws-credentials@v2
       with:
