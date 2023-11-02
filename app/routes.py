@@ -6,11 +6,12 @@ from app.models import Menu
 @app.route('/')
 def home():
 	return jsonify({ "status": "ok",
-                     "version": "v.1.0.2" })
+                     "version": "v.1.0.2",
+                      "password":"sdaf@asdu3289@J" })
 
 @app.route('/menu')
 def menu():
-    today = Menu.query.first()
+    today=Menu.query.first()
     if today:
         body = { "today_special": today.name }
         status = 200
